@@ -5,7 +5,7 @@ using School.Infra;
 
 namespace School.API.Application.Handler.CommandHandler
 {
-    public class AddStudentCommandHandler : IRequestHandler<AddStudentCommand, bool>
+    public class AddStudentCommandHandler : IRequestHandler<AddStudentCommand, Student>
     {
         private readonly DataContext _dataContext;
 
@@ -13,14 +13,14 @@ namespace School.API.Application.Handler.CommandHandler
         {
             _dataContext = dataContext;
         }
-        public async Task<bool> Handle(AddStudentCommand request, CancellationToken cancellationToken)
+        public async Task<Student> Handle(AddStudentCommand request, CancellationToken cancellationToken)
         {
             var student = new Student(request.FirstName, request.LastName, request.Age,request.Phone, request.Email);
 
              _dataContext.Add(student);
-            await _dataContext.SaveChangesAsync();
+            await _dataContext.SaveChangesAsync(cancellationToken);
 
-            return true;
+            return student;
         }
     }
 }

@@ -21,7 +21,7 @@ namespace School.Infra.Configuration
                 .HasMaxLength(50);
 
             builder.Property(s => s.LastName)
-                .HasMaxLength(50);
+                .HasMaxLength(100);
 
             builder.Property(s => s.Phone)
                 .HasMaxLength(11); 

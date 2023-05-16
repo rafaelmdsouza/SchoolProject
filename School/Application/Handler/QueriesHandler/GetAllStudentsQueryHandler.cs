@@ -15,7 +15,8 @@ namespace School.API.Application.Handler.QueriesHandler
         }
         public async Task<IEnumerable<Student>> Handle(GetAllStudents request, CancellationToken cancellationToken)
         {
-            return await _dataContext.Students.ToListAsync(cancellationToken);
+            var students = await _dataContext.Students.AsNoTracking().Where(s => s.isActive == true).ToListAsync(cancellationToken);
+            return students;
         }
     }
 }

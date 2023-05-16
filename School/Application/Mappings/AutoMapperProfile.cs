@@ -6,16 +6,13 @@ using School.Domain.Aggregates.Student;
 
 namespace School.API.Application.MappingProfiles
 {
-    public class StudentMapping : Profile
+    public class AutoMapperProfile : Profile
     {
-        public StudentMapping()
+        public AutoMapperProfile()
         {
             CreateMap<AddStudentRequest, AddStudentCommand>().ReverseMap();
             CreateMap<Student, StudentResponse>().ReverseMap();
             CreateMap<Student, FullStudentResponse>().ReverseMap();
-
-
-
         }
     }
 }

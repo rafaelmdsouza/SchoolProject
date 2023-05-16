@@ -36,7 +36,7 @@ namespace School.Domain.Aggregates.Student
             FinalGrade = grade;
         }
 
-        public void DeleteStudent ()
+        public void DisableStudent ()
         {
             isActive = false;
         }

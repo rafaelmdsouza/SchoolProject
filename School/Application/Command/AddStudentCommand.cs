@@ -3,7 +3,7 @@ using School.Domain.Aggregates.Student;
 
 namespace School.API.Application.Command
 {
-    public class AddStudentCommand : IRequest<bool>
+    public class AddStudentCommand : IRequest<Student>
     {
         public AddStudentCommand(string firstName, string lastName, int age, string phone, string email)
         {
